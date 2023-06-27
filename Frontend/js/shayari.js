@@ -5,7 +5,7 @@ const shayariOutput = document.getElementById("shayariOutput");
 generateBtn.addEventListener("click", async () => {
   const keyword = keywordInput.value.trim();
   if (keyword === "") {
-    return shayariOutput.innerHTML = "";;
+    return (shayariOutput.innerHTML = "");
   }
 
   const promptBody = {
@@ -28,9 +28,21 @@ const requestDataFromServer = async (promptBody) => {
     const data = await response.json();
 
     if (response.ok) {
-      generateBtn.textContent = 'Generate Shayari';
+      generateBtn.textContent = "Generate Shayari";
       const shayari = data.content;
-      shayariOutput.innerHTML = `<p>${shayari}</p>`;
+
+      // Clear previous output
+      shayariOutput.innerHTML = "";
+
+      // Type out the shayari letter by letter
+      let i = 0;
+      const typingEffect = setInterval(() => {
+        shayariOutput.innerHTML += shayari.charAt(i);
+        i++;
+        if (i > shayari.length) {
+          clearInterval(typingEffect);
+        }
+      }, 20);
     } else {
       shayariOutput.innerHTML = `<p>Error: ${data.error}</p>`;
     }
