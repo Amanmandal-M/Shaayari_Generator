@@ -44,11 +44,6 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form-group button:hover {
-  background-color: #45a049;
 }
 
 .shayari-output {
