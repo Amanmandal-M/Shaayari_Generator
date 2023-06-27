@@ -13,18 +13,17 @@ const shayariPostController = async (req, res) => {
   try {
     const { prompt } = req.body;
 
-    // Check if data already exists in the database
-    const dataExist = await shayariModel.aggregate([
-      {
-        $match: {
-          keyword: prompt,
-        },
-      },
-    ]);
+    if (!prompt) {
+      // Prompt validation failed
+      throw new Error("No prompt was provided");
+    }
 
-    if (dataExist.length > 0) {
+    // Check if data already exists in the database
+    const dataExist = await shayariModel.findOne({ keyword: prompt });
+
+    if (dataExist) {
       // Return existing data if it exists
-      return res.status(200).json(dataExist[0]);
+      return res.status(200).json(dataExist);
     }
 
     const systemMessage = `Act as an Expert Shayari Generator. The user will provide you a keyword as input, and you have to generate shayari around that in Hindi.`;
@@ -34,26 +33,20 @@ const shayariPostController = async (req, res) => {
       { role: "user", content: `the keyword for shayari is ${prompt}` },
     ];
 
-    if (!prompt) {
-      // Prompt validation failed
-      throw new Error("No prompt was provided");
-    }
-
     const gptResponse = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: messages,
     });
 
-    const data = gptResponse.data.choices[0].message;
+    const dataContent = gptResponse.data.choices[0].message.content;
 
     // Save the generated data to the database
-    const addDataInDb = new shayariModel({
+    const addDataInDb = await shayariModel.create({
       keyword: prompt,
-      content: data.content,
+      content: dataContent,
     });
-    await addDataInDb.save();
 
-    res.status(200).json(data);
+    res.status(200).json(addDataInDb);
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "An error occurred while generating Shayari" });
