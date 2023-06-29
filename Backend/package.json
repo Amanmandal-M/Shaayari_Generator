@@ -1,5 +1,5 @@
 {
-  "name": "Shayari Generator",
+  "name": "shayari-generator-backend",
   "version": "1.0.0",
   "description": "This is Shyari Generator Backend App so user can use this to generate shayari in hindi or english both.",
   "main": "server.js",
