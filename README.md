@@ -78,7 +78,7 @@ Note :
 
 <h2>
     <strong>
-        <a href="https://shayari-generator-backend.onrender.com">Railway</a>
+        <a href="https://shayari-generator-backend.onrender.com">Render</a>
     </strong>
 </h2>
 
@@ -103,6 +103,16 @@ Note :
 <br>
 
 This is Shyari Generator Frontend Section so user can use this to generate shayaari in hindi or English Both.
+
+<br>
+
+## Frontend Deployment URL
+
+<h2>
+    <strong>
+        <a href="https://code-converter-genai.netlify.app/">Netlify</a>
+    </strong>
+</h2>
 
 </details>
 

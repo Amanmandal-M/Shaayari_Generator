@@ -70,6 +70,6 @@ Note :
 
 <h2>
     <strong>
-        <a href="https://shayari-generator-backend.onrender.com">Railway</a>
+        <a href="https://shayari-generator-backend.onrender.com">Render</a>
     </strong>
 </h2>
