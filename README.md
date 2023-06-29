@@ -110,7 +110,7 @@ This is Shyari Generator Frontend Section so user can use this to generate shaya
 
 <h2>
     <strong>
-        <a href="https://code-converter-genai.netlify.app/">Netlify</a>
+        <a href="https://shayari-generator.netlify.app/">Netlify</a>
     </strong>
 </h2>
 
