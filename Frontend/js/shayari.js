@@ -1,3 +1,7 @@
+const baseUrl =  "https://shayari-generator-backend.onrender.com";
+const defaultUrl = `${baseUrl}/api`;
+const shayariUrl = `${defaultUrl}/shayari`
+
 const generateBtn = document.getElementById("generateBtn");
 const keywordInput = document.getElementById("keyword");
 const shayariOutput = document.getElementById("shayariOutput");
@@ -17,7 +21,7 @@ generateBtn.addEventListener("click", async () => {
 
 const requestDataFromServer = async (promptBody) => {
   try {
-    const response = await fetch("https://shayari.up.railway.app/api/shayari", {
+    const response = await fetch(shayariUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
