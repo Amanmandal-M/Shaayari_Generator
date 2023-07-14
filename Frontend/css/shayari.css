@@ -3,11 +3,14 @@ body {
   background-color: #f7f7f7;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 600px;
-  margin: 0 auto;
   padding: 40px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -16,11 +19,13 @@ body {
 }
 
 h1 {
-  color: #333;
+  color: blue;
+  text-align: center;
 }
 
 .form-group {
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .form-group label {
@@ -52,6 +57,8 @@ h1 {
   padding: 20px;
   border-radius: 4px;
   text-align: left;
+  white-space: pre-line; /* Preserve line breaks */
+  text-align: center;
 }
 
 .shayari-output p {
@@ -116,4 +123,32 @@ h1 {
   .shayari-output p {
     font-size: 12px;
   }
+}
+
+.chat-bubble {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#generateBtn{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 17px;
+}
+
+.loaderText{
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  display: none;
+  margin-top: 15px;
+  font-weight: 700;
+  color: black;
 }
