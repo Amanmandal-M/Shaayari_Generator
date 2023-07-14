@@ -26,7 +26,7 @@ const shayariPostController = async (req, res) => {
       return res.status(200).json(dataExist);
     }
 
-    const systemMessage = `Act as an Expert Shayari Generator. The user will provide you a keyword as input, and you have to generate shayari around that in Hindi.`;
+    const systemMessage = `Act as an Expert Shayari Generator. The user will provide you a keyword as input, and you have to generate shayari around that in Hindi and Keep in short`;
 
     const messages = [
       { role: "system", content: systemMessage },
