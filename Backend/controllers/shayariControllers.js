@@ -34,7 +34,7 @@ const shayariPostController = async (req, res) => {
     ];
 
     const gptResponse = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: process.env.MODEL_NAME || "gpt-3.5-turbo",
       messages: messages,
     });
 
